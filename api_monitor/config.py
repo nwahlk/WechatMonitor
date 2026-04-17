@@ -97,9 +97,11 @@ def load_config(path: str | Path) -> MonitorConfig:
     base_url = settings.get("base_url", raw.get("base_url", ""))
     shared_headers = settings.get("shared_headers", raw.get("shared_headers", {}))
 
-    # 解析端点列表
+    # 解析端点列表（跳过 enabled: false 的端点）
     endpoints = []
     for ep_raw in raw.get("endpoints", []):
+        if ep_raw.get("enabled") is False:
+            continue
         endpoints.append(Endpoint(
             name=ep_raw["name"],
             url=ep_raw["url"],

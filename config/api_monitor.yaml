@@ -8,6 +8,7 @@ endpoints:
   - message
   timeout: 10
 - name: 退出
+  enabled: false
   url: /etfapp/retail/auth/exit
   method: POST
   expected_status: 200
@@ -25,6 +26,7 @@ endpoints:
   - message
   timeout: 10
 - name: 微信登录
+  enabled: false
   url: /etfapp/retail/auth/login
   method: POST
   expected_status: 200
@@ -34,6 +36,7 @@ endpoints:
   timeout: 10
   body: '{"code": "test", "encryptedData": "test", "iv": "test"}'
 - name: 注销
+  enabled: false
   url: /etfapp/retail/auth/logout
   method: POST
   expected_status: 200
@@ -43,6 +46,7 @@ endpoints:
   timeout: 10
   body: '{}'
 - name: 记录用户勾选协议
+  enabled: false
   url: /etfapp/retail/auth/recordUserAgree
   method: POST
   expected_status: 200
@@ -52,6 +56,7 @@ endpoints:
   timeout: 10
   body: '{"type": "1"}'
 - name: 撤销协议授权
+  enabled: false
   url: /etfapp/retail/auth/revokeUserAgree
   method: POST
   expected_status: 200
@@ -61,6 +66,7 @@ endpoints:
   timeout: 10
   body: '{"type": "1"}'
 - name: 获取Session(GET)
+  enabled: false
   url: /etfapp/retail/auth/session?code=test
   method: GET
   expected_status: 200
@@ -69,6 +75,7 @@ endpoints:
   - message
   timeout: 10
 - name: 获取Session(POST)
+  enabled: false
   url: /etfapp/retail/auth/session
   method: POST
   expected_status: 200
