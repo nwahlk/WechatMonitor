@@ -8,7 +8,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 退出
   url: /etfapp/retail/auth/exit
   method: POST
@@ -18,9 +17,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询用户勾选协议信息
   url: /etfapp/retail/auth/getUserAgree
   method: GET
@@ -30,7 +26,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 微信登录
   url: /etfapp/retail/auth/login
   method: POST
@@ -40,9 +35,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"code": "test", "encryptedData": "test", "iv": "test"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 注销
   url: /etfapp/retail/auth/logout
   method: POST
@@ -52,9 +44,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 记录用户勾选协议
   url: /etfapp/retail/auth/recordUserAgree
   method: POST
@@ -64,9 +53,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"type": "1"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 撤销协议授权
   url: /etfapp/retail/auth/revokeUserAgree
   method: POST
@@ -76,9 +62,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"type": "1"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取Session(GET)
   url: /etfapp/retail/auth/session?code=test
   method: GET
@@ -88,7 +71,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取Session(POST)
   url: /etfapp/retail/auth/session
   method: POST
@@ -98,9 +80,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"code": "test", "unionId": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 新增哑铃策略
   url: /etfapp/retail/barbell/addBarbellStrategy
   method: POST
@@ -113,9 +92,6 @@ endpoints:
     "", "growthProductCode": "", "growthRatio": "", "otherCalProductList": "", "otherCalProductRatio":
     "", "startDate": "2025-01-01", "strategyCharacter": "", "strategyId": "", "strategyName":
     "", "valueProductCode": "", "valueRatio": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 删除哑铃策略
   url: /etfapp/retail/barbell/deleteBarbellStrategy?StrategyId=1
   method: GET
@@ -125,7 +101,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询哑铃策略
   url: /etfapp/retail/barbell/getBarbellStrategy
   method: GET
@@ -135,7 +110,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取哑铃策略业绩
   url: /etfapp/retail/barbell/getBarbellStrategyPerformance
   method: POST
@@ -148,9 +122,6 @@ endpoints:
     "", "growthProductCode": "", "growthRatio": "", "otherCalProductList": "", "otherCalProductRatio":
     "", "startDate": "2025-01-01", "strategyCharacter": "", "strategyId": "", "strategyName":
     "", "valueProductCode": "", "valueRatio": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取配置产品列表
   url: /etfapp/retail/barbell/getConfigProductList?type=1
   method: GET
@@ -160,7 +131,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取动态权重变化列表
   url: /etfapp/retail/barbell/getDynamicWeightChangeList
   method: POST
@@ -173,9 +143,6 @@ endpoints:
     "", "growthProductCode": "", "growthRatio": "", "otherCalProductList": "", "otherCalProductRatio":
     "", "startDate": "2025-01-01", "strategyCharacter": "", "strategyId": "", "strategyName":
     "", "valueProductCode": "", "valueRatio": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询指数业绩表现
   url: /etfapp/retail/barbell/getIndexPerformance?startDate=2025-01-01&endDate=2025-12-31
   method: GET
@@ -185,7 +152,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取每日最优动态哑铃策略
   url: /etfapp/retail/barbell/getOptimalBarbellStrategyDaily
   method: GET
@@ -195,7 +161,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询指数相关产品
   url: /etfapp/retail/barbell/getRelateFund
   method: POST
@@ -208,9 +173,6 @@ endpoints:
     "", "growthProductCode": "", "growthRatio": "", "otherCalProductList": "", "otherCalProductRatio":
     "", "startDate": "2025-01-01", "strategyCharacter": "", "strategyId": "", "strategyName":
     "", "valueProductCode": "", "valueRatio": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 修改哑铃策略
   url: /etfapp/retail/barbell/modifyBarbellStrategy
   method: POST
@@ -223,9 +185,6 @@ endpoints:
     "", "growthProductCode": "", "growthRatio": "", "otherCalProductList": "", "otherCalProductRatio":
     "", "startDate": "2025-01-01", "strategyCharacter": "", "strategyId": "", "strategyName":
     "", "valueProductCode": "", "valueRatio": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询哑铃策略发现页
   url: /etfapp/retail/barbell/queryStrategyDiscoverPage
   method: GET
@@ -235,7 +194,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询菜单展示配置
   url: /etfapp/retail/common/getMenuDisplayConfig
   method: GET
@@ -263,9 +221,6 @@ endpoints:
   body: '{"addPositionRatio": "", "fundCode": "510300", "grid": "", "gridType": "1",
     "strategyId": "", "strategyName": "", "systemModule": "", "templateId": "", "traceDate":
     ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 删除网格策略
   url: /etfapp/retail/strategy/grid/delStrategy
   method: POST
@@ -276,9 +231,6 @@ endpoints:
   timeout: 10
   body: '{"addPositionRatio": "", "fundCode": "510300", "grid": "", "gridType": "1",
     "systemModule": "", "traceDate": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取网格经典案例
   url: /etfapp/retail/strategy/grid/getClassicCase
   method: GET
@@ -288,7 +240,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询日期区间
   url: /etfapp/retail/strategy/grid/getDateRange?fundCode=510300&gridType=1
   method: GET
@@ -298,7 +249,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取ETF行情数据
   url: /etfapp/retail/strategy/grid/getEtfMarketData?fundCode=510300
   method: GET
@@ -308,7 +258,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取网格
   url: /etfapp/retail/strategy/grid/getGrid
   method: POST
@@ -319,9 +268,6 @@ endpoints:
   timeout: 10
   body: '{"addPositionRatio": "", "fundCode": "510300", "grid": "", "gridType": "1",
     "systemModule": "", "traceDate": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取网格权限
   url: /etfapp/retail/strategy/grid/getGridAuth
   method: GET
@@ -331,7 +277,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取回测记录
   url: /etfapp/retail/strategy/grid/getGridRecords
   method: POST
@@ -342,9 +287,6 @@ endpoints:
   timeout: 10
   body: '{"addPositionRatio": "", "fundCode": "510300", "grid": "", "gridType": "1",
     "systemModule": "", "traceDate": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取我的网格策略
   url: /etfapp/retail/strategy/grid/getMyStrategy
   method: POST
@@ -354,9 +296,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"beginDate": "", "endDate": "2025-12-31", "gridType": "1"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取整体收益率
   url: /etfapp/retail/strategy/grid/getOverallYieldRate
   method: POST
@@ -367,9 +306,6 @@ endpoints:
   timeout: 10
   body: '{"addPositionRatio": "", "fundCode": "510300", "grid": "", "gridType": "1",
     "systemModule": "", "traceDate": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取推荐网格策略
   url: /etfapp/retail/strategy/grid/getRecommendStrategy
   method: POST
@@ -379,9 +315,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"beginDate": "", "endDate": "2025-12-31", "gridType": "1"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取网格策略模板列表
   url: /etfapp/retail/strategy/grid/getStrategyTemplates?gridType=1
   method: GET
@@ -391,7 +324,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 删除搜索历史
   url: /etfapp/retail/homepage/deleteSearchHistory?keyword=沪深300&type=1
   method: GET
@@ -417,8 +349,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"keyword": "沪深300", "page": "", "size": "", "type": "1", "typeList": ""}'
-  headers:
-    Content-Type: application/json
 - name: 分页搜索关键词(行业/热点)
   url: /etfapp/retail/homepage/pageSearchIndexWeightByKeyword
   method: POST
@@ -428,8 +358,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"keyword": "沪深300", "page": "", "size": "", "type": "1", "typeList": ""}'
-  headers:
-    Content-Type: application/json
 - name: 获取首页重点指数信息
   url: /etfapp/retail/homepage/queryHomePageIndexInfo
   method: GET
@@ -480,8 +408,6 @@ endpoints:
   timeout: 10
   body: '{"clas": "", "dataDate": "", "indexCode": "000300", "keyWord": "", "pageNo":
     "1", "pageSize": "10", "sortDirection": "desc", "sortKey": "", "type": "1"}'
-  headers:
-    Content-Type: application/json
 - name: 指数/ETF/ETF场外列表
   url: /etfapp/retail/indexBase/indexEtfList
   method: POST
@@ -492,8 +418,6 @@ endpoints:
   timeout: 10
   body: '{"clas": "", "dataDate": "", "indexCode": "000300", "keyWord": "", "pageNo":
     "1", "pageSize": "10", "sortDirection": "desc", "sortKey": "", "type": "1"}'
-  headers:
-    Content-Type: application/json
 - name: 指数相关基金
   url: /etfapp/retail/indexBase/indexRelateFund?indexCode=000300
   method: GET
@@ -511,8 +435,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"indicator": "", "isDesc": "", "level": "", "type": "1", "typeCode": ""}'
-  headers:
-    Content-Type: application/json
 - name: 查询分类列表
   url: /etfapp/retail/indexZone/queryIndexTypeList
   method: POST
@@ -522,8 +444,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"indicator": "", "isDesc": "", "level": "", "type": "1", "typeCode": ""}'
-  headers:
-    Content-Type: application/json
 - name: 历史估值(PE,PB,股息率)
   url: /etfapp/retail/indexDetail/list?indexCode=000300&startDate=2025-01-01&endDate=2025-12-31
   method: GET
@@ -533,7 +453,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询涨跌幅
   url: /etfapp/retail/indexDetail/queryChangeRateByIndexCode?indexCode=000300
   method: GET
@@ -576,8 +495,6 @@ endpoints:
   timeout: 10
   body: '{"changeVsPreviousSort": "", "indexCode": "000300", "pageNo": "1", "pageSize":
     "10", "weightSort": ""}'
-  headers:
-    Content-Type: application/json
 - name: 查询市场市值
   url: /etfapp/retail/indexDetail/queryMarketCap?indexCode=000300
   method: GET
@@ -604,8 +521,6 @@ endpoints:
   timeout: 10
   body: '{"endDate": "2025-12-31", "fromMonth": "", "indexCode": "000300", "startDate":
     "2025-01-01"}'
-  headers:
-    Content-Type: application/json
 - name: 查询行情走势最大日期
   url: /etfapp/retail/indexDetail/queryMarketTrendMaxDate?indexCode=000300
   method: GET
@@ -632,8 +547,6 @@ endpoints:
   timeout: 10
   body: '{"endDate": "2025-12-31", "indexCode": "000300", "startDate": "2025-01-01",
     "type": "1"}'
-  headers:
-    Content-Type: application/json
 - name: 查询资金净流入(POST)
   url: /etfapp/retail/indexDetail/queryNetInflow1
   method: POST
@@ -644,8 +557,6 @@ endpoints:
   timeout: 10
   body: '{"endDate": "2025-12-31", "indexCode": "000300", "startDate": "2025-01-01",
     "type": "1"}'
-  headers:
-    Content-Type: application/json
 - name: 查询风险收益特征
   url: /etfapp/retail/indexDetail/queryRiskReturnRatio?indexCode=000300
   method: GET
@@ -680,8 +591,6 @@ endpoints:
   timeout: 10
   body: '{"categoryNameList": "", "firstIndustryCodeList": "", "pageNo": "1", "pageSize":
     "10", "ratioSortId": "", "secondIndustryCodeList": "", "themeTypeList": ""}'
-  headers:
-    Content-Type: application/json
 - name: 获取热点选指数据
   url: /etfapp/retail/index/exposed/queryThemeWeight
   method: POST
@@ -692,8 +601,6 @@ endpoints:
   timeout: 10
   body: '{"categoryNameList": "", "firstIndustryCodeList": "", "pageNo": "1", "pageSize":
     "10", "ratioSortId": "", "secondIndustryCodeList": "", "themeTypeList": ""}'
-  headers:
-    Content-Type: application/json
 - name: 获取热点分类
   url: /etfapp/retail/index/exposed/queryThemeWeightType?keyword=沪深300
   method: GET
@@ -711,9 +618,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 时点动量历史信号查询
   url: /etfapp/retail/point/pointHistorySign
   method: POST
@@ -724,9 +628,6 @@ endpoints:
   timeout: 10
   body: '{"benchmarkCode": "", "endDate": "2025-12-31", "isShowDetail": "", "isShowNoSign":
     "", "signalType": "", "startDate": "2025-01-01"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 时点动量收益接口
   url: /etfapp/retail/point/pointRet
   method: POST
@@ -737,9 +638,6 @@ endpoints:
   timeout: 10
   body: '{"benchmarkCode": "", "endDate": "2025-12-31", "isNoSign": "", "signalType":
     "", "startDate": "2025-01-01"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询超额收益
   url: /etfapp/retail/point/queryExcessReturn?benchmark=000300
   method: GET
@@ -749,7 +647,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 时点动量推荐产品
   url: /etfapp/retail/point/queryPointRecommendDetail
   method: POST
@@ -760,9 +657,6 @@ endpoints:
   timeout: 10
   body: '{"benchmarkCode": "", "endDate": "2025-12-31", "isNoSign": "", "signalType":
     "", "startDate": "2025-01-01"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取场外基本指标信息
   url: /etfapp/retail/product/baseEtfLinkInfo?productCode=510300
   method: GET
@@ -860,8 +754,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"productCode": "510300", "type": "1"}'
-  headers:
-    Content-Type: application/json
 - name: 获取市值信息
   url: /etfapp/retail/product/getMarketValueInfo?fundCode=510300
   method: GET
@@ -880,8 +772,6 @@ endpoints:
   timeout: 10
   body: '{"endDate": "2025-12-31", "indexCode": "000300", "startDate": "2025-01-01",
     "type": "1"}'
-  headers:
-    Content-Type: application/json
 - name: 产品净值收益率接口
   url: /etfapp/retail/product/getProductNetValueYield?productCode=510300
   method: GET
@@ -907,8 +797,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"productCode": "510300", "type": "1"}'
-  headers:
-    Content-Type: application/json
 - name: 获取收益趋势列表
   url: /etfapp/retail/product/getReturnTrendList?fundCode=510300&indexCode=000300&startDate=2025-01-01&endDate=2025-12-31
   method: GET
@@ -974,9 +862,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 添加自选字段
   url: /etfapp/retail/selfSelection/insertCustomField
   method: POST
@@ -986,9 +871,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"customField": "", "type": "1"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 新增或修改自选产品
   url: /etfapp/retail/selfSelection/mergeSelfSelection
   method: POST
@@ -998,9 +880,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询全量自选产品
   url: /etfapp/retail/selfSelection/queryAllSelfSelection
   method: GET
@@ -1010,7 +889,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询自选字段
   url: /etfapp/retail/selfSelection/queryCustomField?type=1
   method: GET
@@ -1020,7 +898,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询ETF推荐产品
   url: /etfapp/retail/selfSelection/queryETFRecommend
   method: GET
@@ -1030,7 +907,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询实时数据
   url: /etfapp/retail/selfSelection/queryRealTimeData
   method: POST
@@ -1040,9 +916,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询自选列表
   url: /etfapp/retail/selfSelection/querySelfSelection
   method: POST
@@ -1053,9 +926,6 @@ endpoints:
   timeout: 10
   body: '{"levelCode": "", "noPagination": true, "pageNo": "1", "pageSize": "10",
     "sortDirection": "desc", "sortKey": "", "type": "1"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询自选列表类型
   url: /etfapp/retail/selfSelection/querySelfSelectionClas
   method: GET
@@ -1065,7 +935,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询排序列表自选产品
   url: /etfapp/retail/selfSelection/querySortSelfSelection
   method: GET
@@ -1075,7 +944,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 修改单个自选产品排序
   url: /etfapp/retail/selfSelection/updateOneProductSort
   method: POST
@@ -1088,9 +956,6 @@ endpoints:
     "", "level2Code": "", "level2Name": "", "level3Code": "", "level3Name": "", "modifyTime":
     "", "name": "", "openId": "", "orderId": "", "rn": "", "status": "", "topOrder":
     "", "type": "1", "typeName": "", "userId": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 新增策略
   url: /etfapp/retail/styleRotation/mergeStyleRotationStrategy
   method: POST
@@ -1103,9 +968,6 @@ endpoints:
     "id": "", "indexA": "", "indexAName": "", "indexB": "", "indexBName": "", "modifyTime":
     "", "status": "", "stgyParam": "", "style": "", "sysModule": "", "sysModuleName":
     "", "updatePerson": "", "userId": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询基准字典
   url: /etfapp/retail/styleRotation/queryBenchmarkDic
   method: POST
@@ -1116,9 +978,6 @@ endpoints:
   timeout: 10
   body: '{"dailyWin": false, "delete": false, "endDate": "2025-12-31", "indexA": "",
     "indexB": "", "indicatorCode": "", "startDate": "2025-01-01", "window": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询跟踪状态
   url: /etfapp/retail/styleRotation/queryFollowStatus
   method: POST
@@ -1128,9 +987,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 指数字典（大小盘）
   url: /etfapp/retail/styleRotation/queryIndexDic
   method: POST
@@ -1140,9 +996,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询推荐策略
   url: /etfapp/retail/styleRotation/queryRecommendStrategy
   method: GET
@@ -1152,7 +1005,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 计算规则（大小盘和成长价值）
   url: /etfapp/retail/styleRotation/queryRule
   method: POST
@@ -1162,9 +1014,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"endDate": "2025-12-31", "indexA": "", "indexB": "", "sysModule": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询自选策略
   url: /etfapp/retail/styleRotation/querySelfStrategy
   method: GET
@@ -1174,7 +1023,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询策略趋势图
   url: /etfapp/retail/styleRotation/queryStrategy
   method: POST
@@ -1186,9 +1034,6 @@ endpoints:
   body: '{"benchmark": "000300", "endDate": "2025-12-31", "followTime": "", "id":
     "", "indexA": "", "indexAName": "", "indexB": "", "indexBName": "", "isFollow":
     "", "startDate": "2025-01-01", "sysModule": "", "sysModuleName": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询可订阅事件列表
   url: /etfapp/retail/subscription/availableEvents
   method: POST
@@ -1198,9 +1043,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 更新订阅状态，支持多个
   url: /etfapp/retail/subscription/update
   method: POST
@@ -1210,9 +1052,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询用户订阅列表
   url: /etfapp/retail/subscription/userSubscriptions
   method: POST
@@ -1222,9 +1061,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 获取温度计历史数据
   url: /etfapp/retail/thermometer/getHistoryTemperature
   method: POST
@@ -1234,8 +1070,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"beginDate": "", "indexCode": "000300"}'
-  headers:
-    Content-Type: application/json
 - name: 最近交易日的指数差值和比值
   url: /etfapp/retail/share/diffValue
   method: POST
@@ -1245,8 +1079,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
 - name: 指数FED溢价
   url: /etfapp/retail/share/fedPremium
   method: POST
@@ -1256,8 +1088,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"indexName": ""}'
-  headers:
-    Content-Type: application/json
 - name: 股债-差值和比值分位值查询
   url: /etfapp/retail/share/value-position
   method: POST
@@ -1267,8 +1097,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"indexName": ""}'
-  headers:
-    Content-Type: application/json
 - name: 交易指标首页数据
   url: /etfapp/retail/trading-indicators/index-data
   method: POST
@@ -1278,8 +1106,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
 - name: 指数温度
   url: /etfapp/retail/trading-indicators/index-temperature
   method: POST
@@ -1289,8 +1115,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"keyword": "沪深300"}'
-  headers:
-    Content-Type: application/json
 - name: 指数活力
   url: /etfapp/retail/trading-indicators/index-vitality
   method: POST
@@ -1300,8 +1124,6 @@ endpoints:
   - message
   timeout: 10
   body: '{"keyword": "沪深300"}'
-  headers:
-    Content-Type: application/json
 - name: 记录用户行为日志(POST)#1
   url: /etfapp/retail/user-behavior/batch-recordLog
   method: POST
@@ -1311,9 +1133,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 查询用户交互情况
   url: /etfapp/retail/user-behavior/query-user-interactive
   method: GET
@@ -1323,7 +1142,6 @@ endpoints:
   - message
   timeout: 10
   headers:
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 记录用户行为日志(POST)
   url: /etfapp/retail/user-behavior/recordLog
   method: POST
@@ -1339,9 +1157,6 @@ endpoints:
     "", "rootOpenId": "", "rootUnionId": "", "serverLine": "", "sourceOpenId": "",
     "sourceUnionId": "", "sysMod": "", "targetUserId": "", "unionId": "", "updateTime":
     "", "userId": ""}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 修改头像
   url: /etfapp/retail/user-info/modifyProfile
   method: POST
@@ -1351,9 +1166,6 @@ endpoints:
   - message
   timeout: 10
   body: '{}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489
 - name: 修改信息
   url: /etfapp/retail/user-info/modifyUserInfo
   method: POST
@@ -1364,6 +1176,3 @@ endpoints:
   timeout: 10
   body: '{"createTime": "", "id": "", "mobile": "", "modifyTime": "", "name": "",
     "nickName": "", "profilePath": "", "status": "", "type": "1"}'
-  headers:
-    Content-Type: application/json
-    session: b6ace0ba-4b57-4a29-9872-c3477279a489

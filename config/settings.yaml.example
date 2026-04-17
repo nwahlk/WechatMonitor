@@ -1,6 +1,7 @@
 base_url: https://etfapp.euler.southernfund.com:13000
 shared_headers:
   Content-Type: application/json
+  session: ""  # 从小程序抓包获取，过期后替换
 task:
   name: 首屈E指
   interval_minutes: 5
