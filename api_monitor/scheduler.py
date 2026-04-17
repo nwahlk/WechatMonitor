@@ -71,11 +71,33 @@ class MonitorScheduler:
             # start == end（默认 0,24）表示全天
             return True
 
+    def _check_session(self) -> bool:
+        """预检 session 是否有效（调用 basicInfo 接口）"""
+        import httpx
+
+        url = f"{self.config.base_url}/etfapp/retail/auth/basicInfo"
+        try:
+            with httpx.Client(timeout=10, verify=False) as client:
+                resp = client.get(url, headers=self.config.shared_headers)
+            data = resp.json()
+            # code=="00000" 表示 session 有效
+            return isinstance(data, dict) and data.get("code") == "00000"
+        except Exception:
+            return False
+
     def _run_checks(self):
         """执行所有端点的健康检查"""
         if not self._is_within_schedule():
             logger.debug("当前不在执行时间段内，跳过检查")
             return
+
+        # 预检 session（仅在配置了 base_url 时）
+        if self.config.base_url and not self._check_session():
+            logger.warning("session 已失效，跳过本轮检查")
+            if self._dispatcher:
+                self._dispatcher.notify_session_expired(self.config.task_name)
+            return
+
         logger.info(f"开始检查: {self.config.task_name} ({len(self.config.endpoints)} 个端点)")
 
         failures = []

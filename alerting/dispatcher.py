@@ -45,6 +45,12 @@ class NotificationDispatcher:
             if handler.__class__.__name__ == "EmailHandler":
                 self._send(handler, subject, content)
 
+    def notify_session_expired(self, task_name: str) -> None:
+        """session 失效告警（飞书+邮件都发）"""
+        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        content = f"**任务:** {task_name}\n**时间:** {now}\n\nsession 已失效，请从小程序重新抓包获取新 session，更新 config/settings.yaml 后恢复监控。"
+        self._send_all(f"[告警] {task_name} session 已失效", content)
+
     def notify_failure(
         self,
         task_name: str,
