@@ -159,8 +159,9 @@ class MonitorScheduler:
         if not self._dispatcher:
             return
 
-        today_str = datetime.now().strftime("%Y-%m-%d")
-        metrics = self.storage.query_metrics(self.config.task_name, since=today_str)
+        from datetime import timedelta
+        yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+        metrics = self.storage.query_metrics(self.config.task_name, since=yesterday, until=datetime.now().strftime("%Y-%m-%d"))
 
         if not metrics["endpoint_stats"]:
             logger.info("今日无检查记录，跳过摘要发送")
@@ -215,15 +216,15 @@ class MonitorScheduler:
             replace_existing=True,
         )
 
-        # 每日 9:00 发送摘要
+        # 每日摘要（发送时间可配置）
         if self._dispatcher:
             self._scheduler.add_job(
                 self._send_daily_summary,
-                trigger=CronTrigger(hour=9, minute=0),
+                trigger=CronTrigger(hour=self.config.schedule.daily_summary_hour, minute=0),
                 id="daily_summary",
                 replace_existing=True,
             )
-            logger.info("每日摘要: 每天 09:00 发送")
+            logger.info(f"每日摘要: 每天 {self.config.schedule.daily_summary_hour:02d}:00 发送（前一天数据）")
 
         try:
             self._scheduler.start()

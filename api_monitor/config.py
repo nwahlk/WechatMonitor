@@ -55,6 +55,7 @@ class ScheduleConfig:
     """执行时间段配置"""
     start_hour: int = 0
     end_hour: int = 24
+    daily_summary_hour: int = 9
 
 
 @dataclass
@@ -134,6 +135,7 @@ def load_config(path: str | Path) -> MonitorConfig:
     schedule = ScheduleConfig(
         start_hour=schedule_raw.get("start_hour", 0),
         end_hour=schedule_raw.get("end_hour", 24),
+        daily_summary_hour=schedule_raw.get("daily_summary_hour", 9),
     )
 
     return MonitorConfig(

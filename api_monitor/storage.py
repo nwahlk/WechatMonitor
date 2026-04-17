@@ -77,21 +77,30 @@ class ResultStorage:
         self,
         task_name: str,
         since: str,
+        until: str | None = None,
     ) -> dict:
         """查询指定时间段内的聚合指标
 
         Args:
             task_name: 任务名
             since: 起始时间 (ISO 格式前缀, 如 "2026-04-17")
+            until: 结束时间 (ISO 格式前缀, 如 "2026-04-18")，不含该日期
 
         Returns:
             包含 latency_percentiles, endpoint_stats, consecutive_failures 的字典
         """
-        rows = self.conn.execute(
-            "SELECT endpoint_name, status, latency_ms FROM api_check_results "
-            "WHERE task_name = ? AND checked_at >= ?",
-            (task_name, since),
-        ).fetchall()
+        if until:
+            rows = self.conn.execute(
+                "SELECT endpoint_name, status, latency_ms FROM api_check_results "
+                "WHERE task_name = ? AND checked_at >= ? AND checked_at < ?",
+                (task_name, since, until),
+            ).fetchall()
+        else:
+            rows = self.conn.execute(
+                "SELECT endpoint_name, status, latency_ms FROM api_check_results "
+                "WHERE task_name = ? AND checked_at >= ?",
+                (task_name, since),
+            ).fetchall()
 
         if not rows:
             return {"latency_percentiles": {}, "endpoint_stats": {}, "consecutive_failures": {}}
@@ -145,12 +154,20 @@ class ResultStorage:
             }
 
         # 连续失败次数（按时间倒序，从最新往前数）
-        latest_rows = self.conn.execute(
-            "SELECT endpoint_name, status FROM api_check_results "
-            "WHERE task_name = ? AND checked_at >= ? "
-            "ORDER BY id DESC",
-            (task_name, since),
-        ).fetchall()
+        if until:
+            latest_rows = self.conn.execute(
+                "SELECT endpoint_name, status FROM api_check_results "
+                "WHERE task_name = ? AND checked_at >= ? AND checked_at < ? "
+                "ORDER BY id DESC",
+                (task_name, since, until),
+            ).fetchall()
+        else:
+            latest_rows = self.conn.execute(
+                "SELECT endpoint_name, status FROM api_check_results "
+                "WHERE task_name = ? AND checked_at >= ? "
+                "ORDER BY id DESC",
+                (task_name, since),
+            ).fetchall()
 
         consecutive: dict[str, int] = {}
         for r in latest_rows:
