@@ -1,0 +1,16 @@
+# 敏感配置（含密码/密钥）
+config/settings.yaml
+
+# 数据库
+data/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+.venv/
+
+# IDE
+.idea/
+.vscode/
