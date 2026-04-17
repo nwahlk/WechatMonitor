@@ -53,7 +53,7 @@ def check_endpoint(
                 url = base_url.rstrip("/") + url
 
             # 合并 headers
-            headers = {**(shared_headers or {}), **endpoint.headers}
+            headers = {**(shared_headers or {}), **(endpoint.headers or {})}
 
             request_kwargs: dict = {
                 "method": endpoint.method,
@@ -92,6 +92,14 @@ def check_endpoint(
 
             # 顶层字段检查
             if endpoint.expected_fields:
+                if not isinstance(json_data, dict):
+                    return CheckResult(
+                        endpoint_name=endpoint.name,
+                        passed=False,
+                        status_code=response.status_code,
+                        latency_ms=latency_ms,
+                        details="响应体为空或非 JSON 对象",
+                    )
                 missing = [f for f in endpoint.expected_fields if f not in json_data]
                 if missing:
                     return CheckResult(

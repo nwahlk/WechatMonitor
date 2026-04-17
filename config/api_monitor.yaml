@@ -7,7 +7,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 退出
   url: /etfapp/retail/auth/exit
   method: POST
@@ -25,7 +24,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 微信登录
   url: /etfapp/retail/auth/login
   method: POST
@@ -70,7 +68,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 获取Session(POST)
   url: /etfapp/retail/auth/session
   method: POST
@@ -100,7 +97,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询哑铃策略
   url: /etfapp/retail/barbell/getBarbellStrategy
   method: GET
@@ -109,7 +105,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 获取哑铃策略业绩
   url: /etfapp/retail/barbell/getBarbellStrategyPerformance
   method: POST
@@ -130,7 +125,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 获取动态权重变化列表
   url: /etfapp/retail/barbell/getDynamicWeightChangeList
   method: POST
@@ -151,7 +145,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 获取每日最优动态哑铃策略
   url: /etfapp/retail/barbell/getOptimalBarbellStrategyDaily
   method: GET
@@ -160,7 +153,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询指数相关产品
   url: /etfapp/retail/barbell/getRelateFund
   method: POST
@@ -193,7 +185,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询菜单展示配置
   url: /etfapp/retail/common/getMenuDisplayConfig
   method: GET
@@ -239,7 +230,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询日期区间
   url: /etfapp/retail/strategy/grid/getDateRange?fundCode=510300&gridType=1
   method: GET
@@ -248,7 +238,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 获取ETF行情数据
   url: /etfapp/retail/strategy/grid/getEtfMarketData?fundCode=510300
   method: GET
@@ -257,7 +246,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 获取网格
   url: /etfapp/retail/strategy/grid/getGrid
   method: POST
@@ -276,7 +264,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 获取回测记录
   url: /etfapp/retail/strategy/grid/getGridRecords
   method: POST
@@ -323,7 +310,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 删除搜索历史
   url: /etfapp/retail/homepage/deleteSearchHistory?keyword=沪深300&type=1
   method: GET
@@ -452,7 +438,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询涨跌幅
   url: /etfapp/retail/indexDetail/queryChangeRateByIndexCode?indexCode=000300
   method: GET
@@ -646,7 +631,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 时点动量推荐产品
   url: /etfapp/retail/point/queryPointRecommendDetail
   method: POST
@@ -888,7 +872,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询自选字段
   url: /etfapp/retail/selfSelection/queryCustomField?type=1
   method: GET
@@ -897,7 +880,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询ETF推荐产品
   url: /etfapp/retail/selfSelection/queryETFRecommend
   method: GET
@@ -906,7 +888,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询实时数据
   url: /etfapp/retail/selfSelection/queryRealTimeData
   method: POST
@@ -934,7 +915,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询排序列表自选产品
   url: /etfapp/retail/selfSelection/querySortSelfSelection
   method: GET
@@ -943,7 +923,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 修改单个自选产品排序
   url: /etfapp/retail/selfSelection/updateOneProductSort
   method: POST
@@ -1004,7 +983,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 计算规则（大小盘和成长价值）
   url: /etfapp/retail/styleRotation/queryRule
   method: POST
@@ -1022,7 +1000,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 查询策略趋势图
   url: /etfapp/retail/styleRotation/queryStrategy
   method: POST
@@ -1141,7 +1118,6 @@ endpoints:
   - code
   - message
   timeout: 10
-  headers:
 - name: 记录用户行为日志(POST)
   url: /etfapp/retail/user-behavior/recordLog
   method: POST
