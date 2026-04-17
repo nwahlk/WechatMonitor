@@ -1,0 +1,20 @@
+base_url: https://etfapp.euler.southernfund.com:13000
+shared_headers:
+  Content-Type: application/json
+task:
+  name: 首屈E指
+  interval_minutes: 5
+schedule:
+  start_hour: 6
+  end_hour: 24
+notification:
+  enabled: true
+  feishu:
+    webhook_url: ""     # 填飞书机器人 Webhook 地址
+    # secret: ""        # 可选：签名校验密钥
+  email:
+    smtp_host: smtp.qq.com
+    smtp_port: 465
+    sender: ""          # 填你的QQ邮箱
+    password: ""        # 填QQ邮箱授权码（非登录密码）
+    receivers: []       # 填收件人邮箱列表
