@@ -74,6 +74,7 @@ class NotificationDispatcher:
             feishu_lines.append(
                 f"- {f['endpoint_name']} | {code} | {latency}"
             )
+            feishu_lines.append(f"  `{f.get('url', '-')}`")
         if len(failures) > 5:
             feishu_lines.append(f"- ... 共 {len(failures)} 个")
         self._send_feishu(feishu_subject, "\n".join(feishu_lines))
@@ -89,6 +90,7 @@ class NotificationDispatcher:
                 f'<td>{f["endpoint_name"]}</td>'
                 f'<td style="text-align:center">{code}</td>'
                 f'<td style="text-align:right">{latency}</td>'
+                f'<td>{f.get("url", "-")}</td>'
                 f'<td>{f.get("details", "-")}</td>'
                 f'</tr>'
             )
@@ -100,6 +102,7 @@ class NotificationDispatcher:
   <th style="border:1px solid #ddd; padding:6px 10px; text-align:left">端点</th>
   <th style="border:1px solid #ddd; padding:6px 10px; text-align:center">状态码</th>
   <th style="border:1px solid #ddd; padding:6px 10px; text-align:right">延迟</th>
+  <th style="border:1px solid #ddd; padding:6px 10px; text-align:left">URL</th>
   <th style="border:1px solid #ddd; padding:6px 10px; text-align:left">详情</th>
 </tr>
 {rows_html}

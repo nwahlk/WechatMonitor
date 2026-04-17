@@ -121,10 +121,16 @@ class MonitorScheduler:
                     if attempt < max_retries:
                         logger.warning(f"  [重试 {attempt}/{max_retries}] {endpoint.name}: {e}")
 
+            # 拼接完整 URL
+            url = endpoint.url
+            if self.config.base_url and url.startswith("/"):
+                url = self.config.base_url.rstrip("/") + url
+
             if result is None:
                 logger.error(f"  [FAIL] {endpoint.name}: 连续 {max_retries} 次异常")
                 failures.append({
                     "endpoint_name": endpoint.name,
+                    "url": url,
                     "status": "fail",
                     "status_code": None,
                     "latency_ms": 0,
@@ -137,6 +143,7 @@ class MonitorScheduler:
                 if not result.passed:
                     failures.append({
                         "endpoint_name": result.endpoint_name,
+                        "url": url,
                         "status": "fail",
                         "status_code": result.status_code,
                         "latency_ms": result.latency_ms,
