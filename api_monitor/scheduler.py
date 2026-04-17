@@ -98,32 +98,50 @@ class MonitorScheduler:
                 self._dispatcher.notify_session_expired(self.config.task_name)
             return
 
-        logger.info(f"开始检查: {self.config.task_name} ({len(self.config.endpoints)} 个端点)")
+        max_retries = 3
+        logger.info(f"开始检查: {self.config.task_name} ({len(self.config.endpoints)} 个端点, 失败重试 {max_retries} 次)")
 
         failures = []
 
         for endpoint in self.config.endpoints:
-            try:
-                result = check_endpoint(
-                    endpoint,
-                    base_url=self.config.base_url,
-                    shared_headers=self.config.shared_headers,
-                )
-                self.storage.save(self.config.task_name, result)
+            result = None
+            for attempt in range(1, max_retries + 1):
+                try:
+                    result = check_endpoint(
+                        endpoint,
+                        base_url=self.config.base_url,
+                        shared_headers=self.config.shared_headers,
+                    )
+                    if result.passed:
+                        break
+                    if attempt < max_retries:
+                        logger.warning(f"  [重试 {attempt}/{max_retries}] {endpoint.name}: {result.details}")
+                except Exception as e:
+                    result = None
+                    if attempt < max_retries:
+                        logger.warning(f"  [重试 {attempt}/{max_retries}] {endpoint.name}: {e}")
 
+            if result is None:
+                logger.error(f"  [FAIL] {endpoint.name}: 连续 {max_retries} 次异常")
+                failures.append({
+                    "endpoint_name": endpoint.name,
+                    "status": "fail",
+                    "status_code": None,
+                    "latency_ms": 0,
+                    "details": f"连续 {max_retries} 次请求异常",
+                })
+            else:
+                self.storage.save(self.config.task_name, result)
                 status = "PASS" if result.passed else "FAIL"
                 logger.info(f"  [{status}] {endpoint.name}: {result.details}")
-
                 if not result.passed:
                     failures.append({
                         "endpoint_name": result.endpoint_name,
                         "status": "fail",
                         "status_code": result.status_code,
                         "latency_ms": result.latency_ms,
-                        "details": result.details,
+                        "details": f"{result.details} (重试 {max_retries} 次仍失败)",
                     })
-            except Exception as e:
-                logger.error(f"  检查异常 {endpoint.name}: {e}")
 
         # 失败时发送告警通知
         if failures and self._dispatcher:
