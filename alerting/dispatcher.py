@@ -34,10 +34,8 @@ class NotificationDispatcher:
     def _send_feishu(self, subject: str, content: str) -> None:
         """仅发送给飞书渠道"""
         for handler in self.handlers:
-            if isinstance(handler, type("FeishuHandler", (), {})):
-                # 运行时判断
-                if handler.__class__.__name__ == "FeishuHandler":
-                    self._send(handler, subject, content)
+            if handler.__class__.__name__ == "FeishuHandler":
+                self._send(handler, subject, content)
 
     def _send_email(self, subject: str, content: str) -> None:
         """仅发送给邮件渠道"""
