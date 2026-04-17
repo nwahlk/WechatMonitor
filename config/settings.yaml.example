@@ -3,7 +3,7 @@ shared_headers:
   Content-Type: application/json
   session: ""  # 从小程序抓包获取，过期后替换
 task:
-  name: 首屈E指
+  name: 首趋E指
   interval_minutes: 5
 schedule:
   start_hour: 6
